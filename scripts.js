@@ -18,10 +18,11 @@ but.forEach(button => {
             inputOperand(button.value)
         }
         else if(button.className == 'clear'){
-            console.log("clear")
+            clear()
         }
         else if(button.className == 'sign'){
-            console.log("sign")
+            inputSign()
+            updateDisp()
         }
         else if(button.className == 'zero'){
             console.log("zero")
@@ -33,7 +34,7 @@ but.forEach(button => {
             percentOp(displayValue)
         }
         else{
-            console.log("equals")
+            inputEqual()
         }
     });
   });
@@ -61,6 +62,7 @@ function inputOperator(operator){
         firstOperator = operator
         firstOperand = displayValue
     }
+    updateDisp()
 }
 
 function calc(num1, num2, op){
@@ -104,4 +106,20 @@ function inputOperand(operand){
             displayValue += operand
     }
     updateDisp()
+}
+
+function clear(){
+    displayValue = 0
+    firstOperand = null
+    firstOperator= null
+    secondOperator = null
+    updateDisp()
+}
+
+function inputSign(){
+    displayValue = (displayValue*-1).toString()
+}
+
+function inputEqual(){
+    
 }
