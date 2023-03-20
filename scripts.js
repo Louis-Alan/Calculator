@@ -10,8 +10,9 @@ but = document.querySelectorAll('button')
 
 but.forEach(button => {
     button.addEventListener('click', function() {
+        console.log(button.value)
         if(button.className == 'operator'){
-            console.log("hihii")
+            inputOperator(button.value)
         }
         else if(button.className == 'operand'){
             console.log("operand")
@@ -44,6 +45,34 @@ function updateDisp(){
 
 updateDisp()
 
-function oper(op){
+function inputOperator(operator){
+    if(firstOperator != null){
+        secondOperator = operator
+        secondOperand = displayValue
+        result = calc(Number(firstOperand), Number(secondOperand), firstOperator)
+        displayValue = result.toString()
+        firstOperand = displayValue
+        result = null
+    }
+    else{
+        firstOperator = operator
+        firstOperand = displayValue
+    }
+}
 
+function calc(num1, num2, op){
+    if(op === '+'){
+        return num1+num2
+    }
+    if(op === '*'){
+        return num1*num2
+    }
+    if(op === '-'){
+        return num1-num2
+    }
+    if(op === '/'){
+        if(num2 === 0)
+            return "ERR"
+        return num1/num2
+    }
 }
