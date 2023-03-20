@@ -36,6 +36,6 @@ button{
     margin: 5px;
 }
 
-#zero{
+.zero{
     grid-column: span 2;
 }
