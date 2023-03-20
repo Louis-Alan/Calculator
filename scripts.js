@@ -15,7 +15,7 @@ but.forEach(button => {
             inputOperator(button.value)
         }
         else if(button.className == 'operand'){
-            console.log("operand")
+            inputOperand(button.value)
         }
         else if(button.className == 'clear'){
             console.log("clear")
@@ -28,6 +28,9 @@ but.forEach(button => {
         }
         else if(button.className == 'decimals'){
             console.log("decimals")
+        }
+        else if(button.className == 'percent'){
+            percentOp(displayValue)
         }
         else{
             console.log("equals")
@@ -75,4 +78,30 @@ function calc(num1, num2, op){
             return "ERR"
         return num1/num2
     }
+}
+
+function percentOp(num){
+    displayValue = (num/100).toString()
+    updateDisp()
+}
+
+function inputOperand(operand){
+    if(firstOperator === null){
+        if(displayValue === 0 || displayValue === '0'){
+            displayValue = operand
+        }
+        else if(displayValue === firstOperand){
+            displayValue = operand
+        }
+        else{
+            displayValue += operand
+        }
+    }
+    else{
+        if(displayValue == firstOperand)
+            displayValue = operand
+        else
+            displayValue += operand
+    }
+    updateDisp()
 }
