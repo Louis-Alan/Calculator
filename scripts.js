@@ -51,7 +51,6 @@ updateDisp()
 
 function inputOperator(operator){
     if(firstOperator != null){
-        secondOperator = operator
         secondOperand = displayValue
         result = calc(Number(firstOperand), Number(secondOperand), firstOperator)
         displayValue = result.toString()
