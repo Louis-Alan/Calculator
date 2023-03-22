@@ -56,6 +56,7 @@ function inputOperator(operator){
         result = calc(Number(firstOperand), Number(secondOperand), firstOperator)
         displayValue = result.toString()
         firstOperand = displayValue
+        firstOperator = operator
         result = null
     }
     else{
