@@ -28,7 +28,8 @@ but.forEach(button => {
             inputOperand(button.value)
         }
         else if(button.className == 'decimals'){
-            console.log("decimals")
+            inputDecimal(button.value)
+            updateDisp()
         }
         else if(button.className == 'percent'){
             percentOp(displayValue)
@@ -144,4 +145,13 @@ function inputEqual(){
         firstOperator= null
         secondOperator = null
     }
+}
+
+function inputDecimal(dot) {
+    if(displayValue === firstOperand || displayValue === secondOperand) {
+        displayValue = '0';
+        displayValue += dot;
+    } else if(!displayValue.includes(dot)) {
+        displayValue += dot;
+    } 
 }
