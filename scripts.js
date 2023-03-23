@@ -25,7 +25,7 @@ but.forEach(button => {
             updateDisp()
         }
         else if(button.className == 'zero'){
-            console.log("zero")
+            inputOperand(button.value)
         }
         else if(button.className == 'decimals'){
             console.log("decimals")
@@ -121,5 +121,27 @@ function inputSign(){
 }
 
 function inputEqual(){
-    
+    if(firstOperator == null)
+    {}
+    else if(displayValue == firstOperand){
+        result = calc(Number(firstOperand), Number(firstOperand), firstOperator)//.tofixed(9)
+        displayValue = result
+        updateDisp()
+        result = null
+        firstOperand = null
+        firstOperator= null
+        secondOperator = null
+    }
+    else{
+        secondOperand = displayValue;
+        result = calc(Number(firstOperand), Number(secondOperand), firstOperator)
+        result = result.toFixed(9)
+        console.log(result)
+        displayValue = result
+        updateDisp()
+        result = null
+        firstOperand = null
+        firstOperator= null
+        secondOperator = null
+    }
 }
